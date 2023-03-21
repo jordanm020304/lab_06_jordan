@@ -16,6 +16,14 @@ def encode_and_store(password_str):
 
     print('Your password has been encoded and stored!\n')
     print(encoded_password_str)
+    return encoded_password_str
+#Quinn's code for decoder function
+def decoder(value):
+    passcode = ''
+    for digit in value:
+        decoded_digit = str((int(digit) - 3) % 10)
+        passcode += decoded_digit
+    return passcode
 
 while is_running:
     print('Menu')
@@ -30,10 +38,10 @@ while is_running:
     if option_selection == '1':
         print('Please enter your password to encode: ', end='')
         password_str = input()
-        encode_and_store(password_str)
+        passcode = encode_and_store(password_str)
 
     elif option_selection == '2':
-
+        print(f'The encoded password is {passcode}, and the original password is {decoder(passcode)}')
         pass
 
     elif option_selection == '3':
